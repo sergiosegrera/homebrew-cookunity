@@ -18,6 +18,14 @@ class Cookunity < Formula
     bin.install "cookunity"
   end
 
+  def caveats
+    <<~EOS
+      Auth tokens are cached at ~/.cookunity/tokens.json.
+      To remove them on uninstall, run:
+        rm -rf ~/.cookunity
+    EOS
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/cookunity --version")
   end
